@@ -1,68 +1,35 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-}
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
 
-header {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 24px;
-    font-weight: bold;
-}
+header { background-color: #333; color: white; text-align: center; padding: 20px 0; }
 
-nav {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    text-align: center;
-}
+nav { background: #444; padding: 10px; text-align: center; }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+nav ul { list-style: none; padding: 0; }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+nav ul li { display: inline; margin: 0 15px; }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
+nav ul li a { color: white; text-decoration: none; font-size: 18px; }
 
-nav ul li a:hover {
-    color: #ffcc00;
-}
+section { padding: 20px; margin: 20px auto; width: 80%; background: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 5px; }
 
-section {
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-}
+h2 { color: #333; }
 
-h2 {
-    color: #ffcc00;
-}
+footer { background: #333; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+[11:16 AM, 2/24/2025] Heena: document.addEventListener("DOMContentLoaded", function () { const navLinks = document.querySelectorAll("nav ul li a");
 
-footer {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+navLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 50,
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+});
